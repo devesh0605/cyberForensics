@@ -1,0 +1,101 @@
+ftk-imager
+md5/sha1
+eo1->expert witness format
+
+
+autopsy:- check integrity of image, config file:-/var/lib/autopsy/case3/
+NTFS:-New Technology File System
+symlink:0- generate link but does not copy
+file type-> sort by file type
+jfif -> jpg file interchange format
+
+DATA ACQUISITION(IMAGE CREATION)
+udo fdisk -l; for all devices  
+dc3dd wipe=/dev/sdb pat=100101 or tpat='text', wipe and store binary data
+sudo dc3dd if=/dev/sda5 hash=md5 log=firsttestlog1 of=sda5_test1.dd
+md5sum sda5_test1.dd
+sudo dc3dd if=/dev/sda5 hash=sha1 log=firsttestlog2 ofsz=200M ofs=sda5_frag.img.00
+sha1sum sda5_frag.img.* 
+cat sda5_frag.img.*|sha1sum ->for single identification number
+dc3dd if=sda5_test1.dd hash=md5 log=firsttestlog3 ofsz=200M ofs=ima_of_img.00
+dc3dd if=sda5_test1.dd hash=md5 log=firsttestlog3 of=img_of_img.dd.
+
+guymager
+chmod 777
+
+
+DATA EXTRACTION:- on the basis of header
+
+foremost:
+/etc/foremost.config
+will not give mp4
+foremost -i inputFilename -o outputFileName
+
+
+scalpel:- will give mp4 file
+root/etc/scalpel/scalpel.conf
+scalpel -c configFile -i inputFile -o outputFile
+OORRR
+scalpel -o scalpel-11-carve/ 11-carve-fat.dd
+
+buk_extractor: for credit card no, browser history,telephone number
+web based info, personal info,domain names
+bulk_extractor -o outputFolder inputFileName
+email_histogram->for exact email address
+
+
+DATA EXTRACTOR:- on the basis of recipie
+
+magicrescue:-order does not matter
+home/filesystem/usr/share/magicrescue/recepies
+jpeg-exif,jpeg-jfif
+magicrescue -r receipiename1 -r receipiename2 -d directoryName -M io(for console) imageName 
+magicrescue -r receipiename1 -r receipiename2 -d directoryName -M io(for console) imageName >magiclog
+
+
+
+seluth kit:-
+mmls -V
+img_stat imageName -> image info
+mmle imageName -> partition info
+fsstat -o partitionNumber imageName -> offset info
+fls - o offset imageName
+r/r file
+d/d directory
+* deleted
+v/v virtual file
+V/V virtual directory
+fls - o offset imageName -f ->for only files
+fls - o offset imageName -D ->for only directories
+fls - o offset imageName -d ->for only deleted
+fls - o offset imageName -u ->for only undeleted
+fls - o offset imageName -newOffset ->for further expansion
+fls -h->for help
+fls - o offset imageName -l -> for long format
+fls -f list-> supported files
+
+
+Volatility:
+volatility.exe -f imagename imageinfo
+service pack windows profile -> service pack 3
+volatility.exe --profile=profileName -f fileName pslist ->process list
+volatility.exe --profile=profileName -f fileName pstree ->process parent child list
+volatility.exe --profile=profileName -f fileName psscan ->hidden process list
+volatility.exe --profile=profileName -f fileName psxview ->comparision process list
+volatility.exe --profile=profileName -f fileName connections ->for active connections
+volatility.exe --profile=profileName -f fileName connscan ->for terminated connections
+volatility.exe --profile=profileName -f fileName sockets ->for tcp udp sockets
+volatility.exe --profile=profileName -f fileName verinfo ->all dll list
+volatility.exe --profile=profileName -f fileName dlllist ->running process dll list
+volatility.exe --profile=profileName -f fileName getsids ->user process id
+volatility.exe --profile=profileName -f fileName hivescan ->registry hives
+volatility.exe --profile=profileName -f fileName hivelist ->hive list relationship
+volatility.exe --profile=profileName -f fileName timeliner ->process timestamp list
+volatility.exe --profile=profileName -f fileName malfind ->malware injection
+volatility.exe --profile=profileName -f fileName malfind -p pid ->malware injection for certain process id
+
+Frame - Ethernet - Internet protocol - User Datagram protocol - DNS(query)
+SIP -> Session Initiation Protocol(voice over communication)
+SDP -> Session Description Protocol
+RTP -> Real-time Transport Protocol
+
